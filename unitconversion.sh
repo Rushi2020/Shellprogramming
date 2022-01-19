@@ -1,41 +1,25 @@
 #!/bin/bash -x
-
-echo  "enter number for conversion in between (1-4) "
-
-
-'1' inch to feet
-'2' feet to meter
-'3' feet to inch
-'4' meter to feet
-
+echo "For the unit conversion enter no between 1-4
+Type '1' to conver feet to inch
+Type '2' to conver feet to meter
+Type '3' to conver inch to feet
+Type '4' to conver meter to feet"
 read num
 
-echo "enter parameter : "
-read parameter
+echo "Enter parameter : "
+read param
 
-case  $num in
-   1)
-       #inch to feet
-       result= $(($parameter*0.0833))
-       echo $result
-            ;;
-
-   2)
-        #feet to meter
-        result= $(($parameter*0.304))
-        echo $result
-            ;;
-
-   3)
-      #feet to inches
-      result= $(($parameter*12))
-      echo $result
-            ;;
-
-   4)
-      #meter to feet
-      result= $(($parameter*3.28))
-       echo $result
-            ;;
-
- esac
+case $num in
+	1)
+		result=`echo $param | awk '{print $1*12}'`
+		echo "$param feet = $result inches";;
+	2)
+		result=`echo $param | awk '{print $1*0.3048}'`
+		echo "$param feet = $result meter";;
+	3)
+		result=`echo $param | awk '{print $1*0.0833}'`
+		echo "$param inches = $result feet";;
+	4)
+		result=`echo $param | awk '{print $1*3.2808}'`
+		echo "$param meter = $result feet";;
+esac
