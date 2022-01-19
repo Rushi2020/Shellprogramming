@@ -38,7 +38,10 @@ do
 	dailyWage["Day "$totalWorkingDays]=$( getEmpWagePerDay $empHrs)
 done
 
-totalSalary=$(($totalEmpHrs*$empRatePerHrs))
+totalSalary=$(($totalEmpHrs*$empRatePerHrs));
 echo $totalSalary
-echo ${!dailyWage[@]}
+for ((i=1; i<=20; i++))
+do
+    echo "Day "$i : ${dailywage["Day "$i]}
+done
 echo ${dailywage[@]}
